@@ -1,5 +1,7 @@
 {
   "name": "tagss",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
