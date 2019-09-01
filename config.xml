@@ -15,8 +15,8 @@
     <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyAbePjDu3fBITZrw5iLrCIHKWxQ6BJDDf0" />
-    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyAbePjDu3fBITZrw5iLrCIHKWxQ6BJDDf0" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBgBCZpQZb1rce3GRxG5M17x2o1OFD8HTM" />
+    <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBgBCZpQZb1rce3GRxG5M17x2o1OFD8HTM" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />

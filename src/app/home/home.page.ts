@@ -1,4 +1,7 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
+
 import {
   GoogleMaps,
   GoogleMap,
@@ -9,24 +12,48 @@ import {
   Marker,
   Environment
 } from '@ionic-native/google-maps';
+import {Platform} from "@ionic/angular";
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
+
   @ViewChild("mapCanvas",{static:false}) mapCanvas:ElementRef;
   map: GoogleMap;
 
-  constructor() {}
+  constructor(private geolocation: Geolocation,private platform:Platform) {
 
-  loadMap() {
+  }
+
+  ngOnInit(): void {
+    this.platform.ready()
+        .then(()=>{
+
+          this.geolocation.watchPosition()
+              .subscribe((data:any)=>{
+                console.log(data);
+                this.loadMap(data.coords.latitude,data.coords.longitude)
+              })
+
+        })
+        .catch(()=>{
+
+        });
+  }
+
+
+  loadMap(lat,lon) {
+    if(this.map != undefined){
+      this.map.remove();
+    }
     let element = this.mapCanvas.nativeElement
     this.map = GoogleMaps.create(element, {
       camera: {
         target: {
-          lat: 43.0741704,
-          lng: -89.3809802
+          lat: lat,
+          lng: lon
         },
         zoom: 18,
         tilt: 30
@@ -34,4 +61,8 @@ export class HomePage {
     });
 
   }
+
+
+
+
 }
